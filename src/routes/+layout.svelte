@@ -1,5 +1,12 @@
 <script>
 	import "./style.css"
+
+	import Header from "./Header.svelte"
+	import Footer from "./Footer.svelte"
 </script>
 
-<slot />
+<div class="app">
+	<Header />
+	<slot />
+	<Footer />
+</div>

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+
 /* Box sizing rules, remove default paddings and margins */
 *,
 *::before,
@@ -22,7 +24,7 @@ html:focus-within {
 body {
 	min-height: 100vh;
 	text-rendering: optimizeSpeed;
-	line-height: 1.5;
+	line-height: 1.6;
 }
 
 /* A elements that don't have a class get default styles */
@@ -83,4 +85,14 @@ select {
 	--color-neutral-700: hsl(292, 37%, 14%);
 	--color-neutral-800: hsl(292, 24%, 11%);
 	--color-neutral-900: hsl(292, 24%, 4%);
+
+	--font-size-400: 1rem;
+	--font-size-500: 1.25rem;
+	--font-size-600: 1.5rem;
+	--font-size-700: 2rem;
+	--font-size-900: 3rem;
+}
+
+body {
+	font-family: "Montserrat", sans-serif;
 }
