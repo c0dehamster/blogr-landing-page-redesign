@@ -1,7 +1,18 @@
+<script lang="ts">
+	import Fa from "svelte-fa"
+	import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
+</script>
+
 <header class="header">
 	<nav class="nav">
 		<div class="nav__section">
-			<button class="nav__button">Product</button>
+			<button class="nav__button">
+				Product
+
+				<span class="nav__icon">
+					<Fa icon={faChevronDown} />
+				</span>
+			</button>
 
 			<ul class="nav__dropdown">
 				<li class="nav__list-item">
@@ -27,7 +38,13 @@
 		</div>
 
 		<div class="nav__section">
-			<button class="nav__button">Company</button>
+			<button class="nav__button">
+				Company
+
+				<span class="nav__icon">
+					<Fa icon={faChevronDown} />
+				</span>
+			</button>
 
 			<ul class="nav__dropdown">
 				<li class="nav__list-item">
@@ -49,7 +66,13 @@
 		</div>
 
 		<div class="nav__section">
-			<button class="nav__button">Connect</button>
+			<button class="nav__button">
+				Connect
+
+				<span class="nav__icon">
+					<Fa icon={faChevronDown} />
+				</span>
+			</button>
 
 			<ul class="nav__dropdown">
 				<li class="nav__list-item">
