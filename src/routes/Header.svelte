@@ -8,6 +8,9 @@
 	let expanded = false
 
 	$: icon = !expanded ? iconHamburger : iconClose
+	$: headerContentsClass = `header__contents ${
+		expanded ? "header__contents--expanded" : ""
+	}`
 </script>
 
 <header class="header">
@@ -16,95 +19,97 @@
 		<img src={icon} alt="" class="icon" />
 	</button>
 
-	<nav class="nav">
-		<div class="nav__section">
-			<button class="nav__button">
-				Product
+	<div class={headerContentsClass}>
+		<nav class="nav">
+			<div class="nav__section">
+				<button class="nav__button">
+					Product
 
-				<span class="nav__icon">
-					<Fa icon={faChevronDown} />
-				</span>
-			</button>
+					<span class="nav__icon">
+						<Fa icon={faChevronDown} />
+					</span>
+				</button>
 
-			<ul class="nav__dropdown">
-				<li class="nav__list-item">
-					<a href="0#" class="link">Overview</a>
-				</li>
+				<ul class="nav__dropdown">
+					<li class="nav__list-item">
+						<a href="0#" class="link">Overview</a>
+					</li>
 
-				<li class="nav__list-item">
-					<a href="0#" class="link">Pricing</a>
-				</li>
+					<li class="nav__list-item">
+						<a href="0#" class="link">Pricing</a>
+					</li>
 
-				<li class="nav__list-item">
-					<a href="0#" class="link">Marketplace</a>
-				</li>
+					<li class="nav__list-item">
+						<a href="0#" class="link">Marketplace</a>
+					</li>
 
-				<li class="nav__list-item">
-					<a href="0#" class="link">Features</a>
-				</li>
+					<li class="nav__list-item">
+						<a href="0#" class="link">Features</a>
+					</li>
 
-				<li class="nav__list-item">
-					<a href="0#" class="link">Integrations</a>
-				</li>
-			</ul>
+					<li class="nav__list-item">
+						<a href="0#" class="link">Integrations</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="nav__section">
+				<button class="nav__button">
+					Company
+
+					<span class="nav__icon">
+						<Fa icon={faChevronDown} />
+					</span>
+				</button>
+
+				<ul class="nav__dropdown">
+					<li class="nav__list-item">
+						<a href="0#" class="link">About</a>
+					</li>
+
+					<li class="nav__list-item">
+						<a href="0#" class="link">Team</a>
+					</li>
+
+					<li class="nav__list-item">
+						<a href="0#" class="link">Blog</a>
+					</li>
+
+					<li class="nav__list-item">
+						<a href="0#" class="link">Careers</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="nav__section">
+				<button class="nav__button">
+					Connect
+
+					<span class="nav__icon">
+						<Fa icon={faChevronDown} />
+					</span>
+				</button>
+
+				<ul class="nav__dropdown">
+					<li class="nav__list-item">
+						<a href="0#" class="link">Contact</a>
+					</li>
+
+					<li class="nav__list-item">
+						<a href="0#" class="link">Newsletter</a>
+					</li>
+
+					<li class="nav__list-item">
+						<a href="0#" class="link">LinkedIn</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="account">
+			<button class="button button--naked">Login</button>
+			<button class="button button--outline">Sign Up</button>
 		</div>
-
-		<div class="nav__section">
-			<button class="nav__button">
-				Company
-
-				<span class="nav__icon">
-					<Fa icon={faChevronDown} />
-				</span>
-			</button>
-
-			<ul class="nav__dropdown">
-				<li class="nav__list-item">
-					<a href="0#" class="link">About</a>
-				</li>
-
-				<li class="nav__list-item">
-					<a href="0#" class="link">Team</a>
-				</li>
-
-				<li class="nav__list-item">
-					<a href="0#" class="link">Blog</a>
-				</li>
-
-				<li class="nav__list-item">
-					<a href="0#" class="link">Careers</a>
-				</li>
-			</ul>
-		</div>
-
-		<div class="nav__section">
-			<button class="nav__button">
-				Connect
-
-				<span class="nav__icon">
-					<Fa icon={faChevronDown} />
-				</span>
-			</button>
-
-			<ul class="nav__dropdown">
-				<li class="nav__list-item">
-					<a href="0#" class="link">Contact</a>
-				</li>
-
-				<li class="nav__list-item">
-					<a href="0#" class="link">Newsletter</a>
-				</li>
-
-				<li class="nav__list-item">
-					<a href="0#" class="link">LinkedIn</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-
-	<div class="account">
-		<button class="button button--naked">Login</button>
-		<button class="button button--outline">Sign Up</button>
 	</div>
 </header>
 
@@ -113,7 +118,9 @@
 		position: absolute;
 		top: 0;
 		width: 100%;
+	}
 
+	.header__contents {
 		display: flex;
 		align-items: baseline;
 		justify-content: space-between;
@@ -126,5 +133,20 @@
 	.nav {
 		display: flex;
 		gap: 2.25rem;
+	}
+
+	@media screen and (max-width: 40rem) {
+		.header__button {
+			display: block;
+		}
+
+		.header__contents {
+			/* Temporary */
+			display: none;
+		}
+
+		.header__contents--expanded {
+			display: block;
+		}
 	}
 </style>
