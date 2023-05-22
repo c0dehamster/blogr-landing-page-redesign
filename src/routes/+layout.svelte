@@ -10,3 +10,9 @@
 	<slot />
 	<Footer />
 </div>
+
+<style>
+	.app {
+		position: relative;
+	}
+</style>
