@@ -3,6 +3,8 @@
 		<h2 class="services__heading">Designed for the future</h2>
 	</div>
 
+	<div class="line" />
+
 	<ul class="services__list">
 		<li class="services__list-item">
 			<div class="card">
@@ -55,4 +57,54 @@
 			</div>
 		</li>
 	</ul>
+
+	<div class="line" />
 </section>
+
+<style>
+	.services {
+		display: grid;
+	}
+
+	.services__divider {
+		padding-inline: var(--padding-main-responsive);
+		height: 4.5rem;
+		display: grid;
+		place-items: center;
+	}
+
+	.line {
+		width: 60%;
+		max-width: 16rem;
+		justify-self: center;
+		margin-block: 3rem;
+
+		border-bottom: 0.25rem solid var(--color-neutral-400);
+	}
+
+	.services__heading {
+		font-size: var(--font-size-600);
+	}
+
+	.services__list {
+		padding-inline: var(--padding-main-responsive);
+
+		display: grid;
+		gap: 4rem;
+	}
+
+	.card {
+		padding-block: 2rem;
+		padding-inline: 1.5rem;
+
+		display: grid;
+		gap: 1.5rem;
+
+		color: var(--color-neutral-100);
+		background-color: var(--color-neutral-600);
+	}
+
+	.card__heading {
+		font-size: var(--font-size-600);
+	}
+</style>
