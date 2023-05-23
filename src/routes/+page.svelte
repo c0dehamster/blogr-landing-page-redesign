@@ -2,6 +2,7 @@
 	import illustration from "../lib/images/Illustration.png"
 
 	import CardList from "./CardList.svelte"
+	import CallToAction from "./CallToAction.svelte"
 </script>
 
 <main class="main">
@@ -23,6 +24,7 @@
 	</section>
 
 	<CardList />
+	<CallToAction />
 </main>
 
 <style>
