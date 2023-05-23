@@ -11,6 +11,7 @@
 
 <style>
 	.call-to-action {
+		padding-block: 4.5rem;
 		padding-inline: var(--padding-main-responsive);
 
 		display: grid;

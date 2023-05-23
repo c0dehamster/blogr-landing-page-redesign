@@ -32,23 +32,23 @@
 
 				<ul class="nav__dropdown">
 					<li class="nav__list-item">
-						<a href="0#" class="link">Overview</a>
+						<a href="#0" class="link">Overview</a>
 					</li>
 
 					<li class="nav__list-item">
-						<a href="0#" class="link">Pricing</a>
+						<a href="#0" class="link">Pricing</a>
 					</li>
 
 					<li class="nav__list-item">
-						<a href="0#" class="link">Marketplace</a>
+						<a href="#0" class="link">Marketplace</a>
 					</li>
 
 					<li class="nav__list-item">
-						<a href="0#" class="link">Features</a>
+						<a href="#0" class="link">Features</a>
 					</li>
 
 					<li class="nav__list-item">
-						<a href="0#" class="link">Integrations</a>
+						<a href="#0" class="link">Integrations</a>
 					</li>
 				</ul>
 			</div>
@@ -64,19 +64,19 @@
 
 				<ul class="nav__dropdown">
 					<li class="nav__list-item">
-						<a href="0#" class="link">About</a>
+						<a href="#0" class="link">About</a>
 					</li>
 
 					<li class="nav__list-item">
-						<a href="0#" class="link">Team</a>
+						<a href="#0" class="link">Team</a>
 					</li>
 
 					<li class="nav__list-item">
-						<a href="0#" class="link">Blog</a>
+						<a href="#0" class="link">Blog</a>
 					</li>
 
 					<li class="nav__list-item">
-						<a href="0#" class="link">Careers</a>
+						<a href="#0" class="link">Careers</a>
 					</li>
 				</ul>
 			</div>
@@ -92,15 +92,15 @@
 
 				<ul class="nav__dropdown">
 					<li class="nav__list-item">
-						<a href="0#" class="link">Contact</a>
+						<a href="#0" class="link">Contact</a>
 					</li>
 
 					<li class="nav__list-item">
-						<a href="0#" class="link">Newsletter</a>
+						<a href="#0" class="link">Newsletter</a>
 					</li>
 
 					<li class="nav__list-item">
-						<a href="0#" class="link">LinkedIn</a>
+						<a href="#0" class="link">LinkedIn</a>
 					</li>
 				</ul>
 			</div>

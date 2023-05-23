@@ -127,6 +127,8 @@ ul {
 .link {
 	text-decoration: none;
 	position: relative;
+
+	color: inherit;
 }
 
 .link::before {
