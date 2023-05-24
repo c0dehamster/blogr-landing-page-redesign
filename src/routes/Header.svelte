@@ -14,10 +14,13 @@
 </script>
 
 <header class="header">
-	<button class="header__button">
-		<span class="sr-only">Menu</span>
-		<img src={icon} alt="" class="icon" />
-	</button>
+	<!-- Makeshift border for the clipped button -->
+	<div class="header__button-wrapper">
+		<button class="header__button">
+			<span class="sr-only">Menu</span>
+			<img src={icon} alt="" class="icon" />
+		</button>
+	</div>
 
 	<div class={headerContentsClass}>
 		<nav class="nav">
@@ -126,7 +129,7 @@
 		justify-content: space-between;
 	}
 
-	.header__button {
+	.header__button-wrapper {
 		display: none;
 	}
 
@@ -136,8 +139,27 @@
 	}
 
 	@media screen and (max-width: 40rem) {
-		.header__button {
+		.header__button-wrapper {
 			display: block;
+			background-color: var(--color-neutral-400);
+			position: relative;
+			width: 4rem;
+			height: 2rem;
+			clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+		}
+
+		.header__button {
+			display: grid;
+			align-items: center;
+			padding-left: 0.75rem;
+
+			position: absolute;
+			inset: 0.125rem 0.25rem 0.125rem 0.125rem;
+
+			background-color: var(--color-neutral-900);
+
+			clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+			border: none;
 		}
 
 		.header__contents {
