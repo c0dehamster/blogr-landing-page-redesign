@@ -64,6 +64,12 @@
 <style>
 	.services {
 		display: grid;
+
+		background: radial-gradient(
+			at right,
+			var(--color-neutral-700),
+			var(--color-neutral-900)
+		);
 	}
 
 	.services__divider {
@@ -71,6 +77,9 @@
 		height: 4.5rem;
 		display: grid;
 		place-items: center;
+
+		background-color: var(--color-neutral-600);
+		color: var(--color-neutral-100);
 	}
 
 	.line {

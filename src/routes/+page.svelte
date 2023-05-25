@@ -35,9 +35,17 @@
 		display: grid;
 		gap: 4rem;
 		justify-items: center;
+
+		background: linear-gradient(
+			45deg,
+			var(--color-neutral-900) 40%,
+			var(--color-neutral-700)
+		);
 	}
 
 	.heading {
+		color: var(--color-neutral-100);
+
 		font-size: var(--font-size-700);
 		text-align: center;
 	}
@@ -62,6 +70,8 @@
 
 		grid-area: description;
 		justify-self: center;
+
+		color: var(--color-neutral-100);
 
 		text-align: center;
 		font-size: var(--font-size-400);

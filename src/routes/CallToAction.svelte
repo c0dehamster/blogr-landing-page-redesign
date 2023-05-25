@@ -19,8 +19,10 @@
 			"heading"
 			"description"
 			"button";
-		gap: 1.5rem;
+		gap: 2rem;
 		justify-items: center;
+
+		background-color: var(--color-neutral-600);
 
 		text-align: center;
 	}
@@ -28,11 +30,15 @@
 	.call-to-action__heading {
 		grid-area: heading;
 
+		color: var(--color-neutral-100);
+
 		font-size: var(--font-size-700);
 	}
 
 	.call-to-action__description {
 		grid-area: description;
+
+		color: var(--color-neutral-100);
 	}
 
 	.button {
