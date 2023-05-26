@@ -160,7 +160,8 @@
 		padding-inline: 2px;
 		padding-block-end: 1.5px;
 
-		clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+		--clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+		clip-path: var(--clip-path);
 
 		background-color: var(--color-neutral-400);
 	}
@@ -170,7 +171,7 @@
 
 		padding-inline: 2rem;
 
-		clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+		clip-path: var(--clip-path);
 
 		display: flex;
 		align-items: center;
@@ -227,5 +228,46 @@
 		height: 30px;
 
 		margin-inline-start: 2rem;
+	}
+
+	@media screen and (max-width: 55rem) {
+		.header {
+			padding-inline-start: 0px;
+		}
+
+		.menu {
+			display: none;
+		}
+
+		.toggle-menu {
+			display: block;
+
+			padding-block-end: 2px;
+			padding-inline-end: 2px;
+			--clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+			clip-path: var(--clip-path);
+
+			border: none;
+
+			background-color: var(--color-neutral-400);
+		}
+
+		.toggle-menu__contents {
+			height: 2rem;
+			width: 4.5rem;
+
+			display: grid;
+			align-items: center;
+
+			padding-inline-start: 0.75rem;
+			clip-path: var(--clip-path);
+
+			background-color: var(--color-neutral-900);
+		}
+
+		.logo {
+			width: 50px;
+			height: 20px;
+		}
 	}
 </style>
