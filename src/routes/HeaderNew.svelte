@@ -114,7 +114,12 @@
 
 		<div class="account">
 			<button class="button button--naked">Login</button>
-			<button class="button button--outline">Sign Up</button>
+
+			<div class="button-border">
+				<button class="button button--naked button--clip-path">
+					Sign Up
+				</button>
+			</div>
 		</div>
 	</div>
 
@@ -196,6 +201,23 @@
 		align-items: center;
 		justify-content: space-between;
 		gap: 2rem;
+	}
+
+	.button-border {
+		padding-inline: 2px;
+		padding-block-end: 1.5px;
+
+		clip-path: polygon(0 0, 100% 0, 87.5% 100%, 12.5% 100%);
+
+		background-color: var(--color-neutral-400);
+	}
+
+	.button--clip-path {
+		padding-inline: 2.5rem;
+
+		background-color: var(--color-neutral-800);
+
+		clip-path: polygon(0 0, 100% 0, 87.5% 100%, 12.5% 100%);
 	}
 
 	/* Logo */
