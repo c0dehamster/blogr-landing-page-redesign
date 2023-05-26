@@ -4,6 +4,7 @@
 
 	import iconHamburger from "../lib/images/icon-hamburger.svg"
 	import iconClose from "../lib/images/icon-close.svg"
+	import logo from "../lib/images/logo.svg"
 
 	let expanded = false
 
@@ -21,6 +22,8 @@
 			<img src={icon} alt="" class="icon" />
 		</button>
 	</div>
+
+	<img src={logo} alt="" class="logo" />
 
 	<div class={headerContentsClass}>
 		<nav class="nav">

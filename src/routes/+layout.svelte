@@ -1,12 +1,12 @@
 <script>
 	import "./style.css"
 
-	import Header from "./Header.svelte"
+	import HeaderNew from "./HeaderNew.svelte"
 	import Footer from "./Footer.svelte"
 </script>
 
 <div class="app">
-	<Header />
+	<HeaderNew />
 	<slot />
 	<Footer />
 </div>
