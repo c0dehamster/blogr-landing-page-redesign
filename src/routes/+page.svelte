@@ -48,7 +48,7 @@
 	.heading {
 		color: var(--color-neutral-100);
 
-		font-size: var(--font-size-700);
+		font-size: clamp(var(--font-size-700), 5vw, var(--font-size-900));
 		text-align: center;
 	}
 
@@ -79,6 +79,14 @@
 
 		text-align: center;
 		font-size: var(--font-size-400);
+	}
+
+	.button--solid {
+		grid-area: start-for-free;
+	}
+
+	.button--outline {
+		grid-area: learn-more;
 	}
 
 	.hero__image {
@@ -123,6 +131,46 @@
 
 		.hero__description {
 			font-size: var(--font-size-500);
+		}
+	}
+
+	@media screen and (min-width: 72rem) {
+		.hero-screen {
+			min-height: min(100vh, 62.5rem);
+		}
+
+		.hero {
+			grid-template-columns: repeat(5, 1fr);
+			grid-template-rows: 1fr 1fr 1fr;
+		}
+
+		.hero__contents-wrapper {
+			grid-row: 1 / 3;
+			grid-column: 1 / 4;
+
+			padding-inline-end: 40%;
+			padding-block: 3.5rem;
+
+			align-items: center;
+		}
+
+		.hero__image {
+			max-width: auto;
+
+			grid-row: 2 / 4;
+			grid-column: 3 / 7;
+		}
+
+		.hero__contents {
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-template-areas:
+				"description description description"
+				"start-for-free start-for-free ."
+				". learn-more learn-more";
+		}
+
+		.hero__description {
+			text-align: start;
 		}
 	}
 </style>
