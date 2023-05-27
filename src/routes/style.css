@@ -212,3 +212,9 @@ ul {
 		font-size: var(--font-size-500);
 	}
 }
+
+@media screen and (min-width: 72rem) {
+	:root {
+		--padding-main-responsive: 13vw;
+	}
+}

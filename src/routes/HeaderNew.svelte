@@ -230,7 +230,7 @@
 		margin-inline-start: 2rem;
 	}
 
-	@media screen and (max-width: 55rem) {
+	@media screen and (max-width: 60rem) {
 		.header {
 			padding-inline-start: 0px;
 		}

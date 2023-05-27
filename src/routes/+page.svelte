@@ -81,6 +81,11 @@
 		font-size: var(--font-size-400);
 	}
 
+	.hero__image {
+		width: 100%;
+		max-width: 35rem;
+	}
+
 	@media screen and (min-width: 40rem) {
 		.hero {
 			/* Overlap content with grid */
