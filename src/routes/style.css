@@ -202,3 +202,13 @@ ul {
 .button--outline:focus::before {
 	background-color: var(--color-neutral-400);
 }
+
+/* Media query */
+
+@media screen and (min-width: 40rem) {
+	.button {
+		height: 2.5rem;
+
+		font-size: var(--font-size-500);
+	}
+}
