@@ -96,13 +96,37 @@
 	}
 
 	.nav__section {
-		display: grid;
-		justify-items: center;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 		gap: 1rem;
 	}
 
 	.nav__list {
 		display: grid;
 		justify-items: center;
+	}
+
+	@media screen and (min-width: 40rem) {
+		.nav {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+	}
+
+	@media screen and (min-width: 72rem) {
+		.footer {
+			grid-template-columns: 1fr 1fr;
+			justify-items: baseline;
+		}
+
+		.nav__section {
+			align-items: baseline;
+			text-align: start;
+		}
+
+		.nav__list {
+			justify-items: baseline;
+			text-align: start;
+		}
 	}
 </style>
