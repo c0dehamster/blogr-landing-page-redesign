@@ -36,6 +36,7 @@
 	}
 
 	.call-to-action__description {
+		max-width: 36rem;
 		grid-area: description;
 
 		color: var(--color-neutral-100);
@@ -45,5 +46,34 @@
 		grid-area: button;
 
 		padding-inline: 1.5rem;
+	}
+
+	@media screen and (min-width: 72rem) {
+		.call-to-action {
+			grid-template-areas:
+				"heading description"
+				"button description";
+			row-gap: 0;
+			column-gap: 4rem;
+		}
+
+		.call-to-action__heading {
+			align-self: baseline;
+			justify-self: baseline;
+
+			text-align: start;
+		}
+
+		.button {
+			align-self: flex-end;
+			justify-self: start;
+		}
+
+		.call-to-action__description {
+			justify-self: end;
+			height: 100%;
+			padding-block-start: 0.5rem;
+			text-align: end;
+		}
 	}
 </style>
