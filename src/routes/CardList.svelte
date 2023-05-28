@@ -96,7 +96,10 @@
 	}
 
 	.services__list {
+		max-width: 40rem;
 		padding-inline: var(--padding-main-responsive);
+
+		justify-self: center;
 
 		display: grid;
 		gap: 4rem;
@@ -121,18 +124,25 @@
 		font-size: var(--font-size-600);
 	}
 
+	@media screen and (min-width: 50rem) {
+		.card__heading {
+			font-size: var(--font-size-700);
+		}
+	}
+
 	@media screen and (min-width: 72rem) {
 		.line {
 			display: none;
 		}
 
 		.services__list {
+			max-width: 100%;
 			padding-block: 9rem;
 
 			grid-template-columns: 1fr 1fr;
 			gap: 0;
 
-			--card-offset: 8rem;
+			--card-offset: 6rem;
 			--border-offset: 2rem;
 		}
 
