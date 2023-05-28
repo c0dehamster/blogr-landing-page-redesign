@@ -6,8 +6,8 @@
 	<div class="line" />
 
 	<ul class="services__list">
-		<li class="services__list-item">
-			<div class="card">
+		<li class="services__list-item services__list-item--1">
+			<div class="card card--1">
 				<h3 class="card__heading">Introducing an extensible editor</h3>
 				<p class="card__description">
 					Blogr features an exceedingly intuitive interface which lets
@@ -20,8 +20,8 @@
 			</div>
 		</li>
 
-		<li class="services__list-item">
-			<div class="card">
+		<li class="services__list-item services__list-item--2">
+			<div class="card card--2">
 				<h3 class="card__heading">Robust content management</h3>
 				<p class="card__description">
 					Flexible content management enables users to easily move
@@ -32,8 +32,8 @@
 			</div>
 		</li>
 
-		<li class="services__list-item">
-			<div class="card">
+		<li class="services__list-item services__list-item--3">
+			<div class="card card--3">
 				<h3 class="card__heading">Free, open, simple</h3>
 				<p class="card__description">
 					Blogr is a free and open source application backed by a
@@ -46,8 +46,8 @@
 			</div>
 		</li>
 
-		<li class="services__list-item">
-			<div class="card">
+		<li class="services__list-item services__list-item--4">
+			<div class="card card--4">
 				<h3 class="card__heading">Powerful tooling</h3>
 				<p class="card__description">
 					Batteries included. We built a simple and straightforward
@@ -103,6 +103,10 @@
 	}
 
 	.card {
+		position: relative;
+
+		height: 100%;
+
 		padding-block: 2rem;
 		padding-inline: 1.5rem;
 
@@ -115,5 +119,96 @@
 
 	.card__heading {
 		font-size: var(--font-size-600);
+	}
+
+	@media screen and (min-width: 72rem) {
+		.line {
+			display: none;
+		}
+
+		.services__list {
+			padding-block: 9rem;
+
+			grid-template-columns: 1fr 1fr;
+			gap: 0;
+
+			--card-offset: 8rem;
+			--border-offset: 2rem;
+		}
+
+		.services__list-item {
+			height: 100%;
+		}
+
+		.services__list-item--1 {
+			padding-inline-end: var(--card-offset);
+			padding-block-end: var(--border-offset);
+
+			justify-items: end;
+		}
+
+		.services__list-item--2 {
+			padding-block-end: var(--card-offset);
+			padding-inline-start: var(--border-offset);
+		}
+
+		.services__list-item--3 {
+			padding-inline-start: var(--card-offset);
+			padding-block-start: var(--border-offset);
+
+			grid-row: 2 / 3;
+			grid-column: 2 / -1;
+		}
+
+		.services__list-item--4 {
+			padding-block-start: var(--card-offset);
+			padding-inline-end: var(--border-offset);
+
+			grid-row: 2 / 3;
+			grid-column: 1 / 2;
+		}
+
+		.card::before {
+			content: "";
+
+			position: absolute;
+			height: 100%;
+			width: 100%;
+
+			/* Temporary */
+			--border: 2px solid var(--color-neutral-400);
+		}
+
+		.card--1::before {
+			top: var(--border-offset);
+			left: var(--border-offset);
+
+			border-right: var(--border);
+			border-bottom: var(--border);
+		}
+
+		.card--2::before {
+			top: var(--border-offset);
+			right: var(--border-offset);
+
+			border-left: var(--border);
+			border-bottom: var(--border);
+		}
+
+		.card--3::before {
+			bottom: var(--border-offset);
+			right: var(--border-offset);
+
+			border-left: var(--border);
+			border-top: var(--border);
+		}
+
+		.card--4::before {
+			bottom: var(--border-offset);
+			left: var(--border-offset);
+
+			border-right: var(--border);
+			border-top: var(--border);
+		}
 	}
 </style>
