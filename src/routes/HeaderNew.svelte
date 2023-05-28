@@ -6,12 +6,10 @@
 	import iconClose from "../lib/images/icon-close.svg"
 	import logo from "../lib/images/logo.svg"
 
-	let expanded = false
+	let expanded = true
 
 	$: icon = !expanded ? iconHamburger : iconClose
-	$: headerContentsClass = `header__contents ${
-		expanded ? "header__contents--expanded" : ""
-	}`
+	$: menuClass = `manu ${expanded ? "menu--expanded" : ""}`
 </script>
 
 <header class="header">
@@ -23,7 +21,7 @@
 		</div>
 	</button>
 
-	<div class="menu">
+	<div class={menuClass}>
 		<nav class="nav">
 			<div class="nav__contents">
 				<div class="nav__section">
@@ -235,10 +233,6 @@
 			padding-inline-start: 0px;
 		}
 
-		.menu {
-			display: none;
-		}
-
 		.toggle-menu {
 			display: block;
 
@@ -268,6 +262,44 @@
 		.logo {
 			width: 50px;
 			height: 20px;
+		}
+
+		.menu {
+			display: none;
+		}
+
+		.menu--expanded {
+			display: grid;
+			position: fixed;
+			inset-inline: 1.5rem;
+			top: 4.5rem;
+
+			max-width: 25rem;
+
+			background-color: var(--color-neutral-900);
+			border: 2px solid var(--color-neutral-400);
+		}
+
+		.nav {
+			clip-path: unset;
+		}
+
+		.nav__contents {
+			height: auto;
+			flex-direction: column;
+			clip-path: unset;
+		}
+
+		.account {
+			flex-direction: column;
+		}
+
+		.button-border {
+			clip-path: unset;
+		}
+
+		.button--clip-path {
+			clip-path: unset;
 		}
 	}
 </style>
