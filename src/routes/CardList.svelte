@@ -121,7 +121,7 @@
 
 		color: var(--color-neutral-100);
 		background-color: var(--color-neutral-600);
-		box-shadow: 0.5rem 0.5rem 1rem 0.5rem var(--color-shadow-400);
+		box-shadow: 0.5rem 0.5rem 2rem 0.5rem var(--color-shadow-400);
 	}
 
 	.card__heading {
