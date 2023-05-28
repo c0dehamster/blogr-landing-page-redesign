@@ -1,4 +1,10 @@
-<section class="call-to-action">
+<script lang="ts">
+	import bgPatternDesktop from "../lib/images/bg-pattern-desktop.svg"
+</script>
+
+<section
+	class="call-to-action"
+	style="--bg-pattern-desktop: url({bgPatternDesktop})">
 	<h2 class="call-to-action__heading">State of the Art Infrastructure</h2>
 	<p class="call-to-action__description">
 		With reliability and speed in mind, worldwide data centers provide the
@@ -55,6 +61,11 @@
 				"button description";
 			row-gap: 0;
 			column-gap: 4rem;
+
+			background-image: var(--bg-pattern-desktop);
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: 10%;
 		}
 
 		.call-to-action__heading {

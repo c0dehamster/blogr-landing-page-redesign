@@ -96,13 +96,16 @@
 	}
 
 	.services__list {
-		max-width: 40rem;
 		padding-inline: var(--padding-main-responsive);
 
 		justify-self: center;
 
 		display: grid;
 		gap: 4rem;
+	}
+
+	.services__list-item {
+		max-width: 40rem;
 	}
 
 	.card {
