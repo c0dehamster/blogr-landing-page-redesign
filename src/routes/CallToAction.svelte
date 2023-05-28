@@ -52,6 +52,7 @@
 		grid-area: button;
 
 		padding-inline: 1.5rem;
+		box-shadow: 0.2rem 0.1rem 1rem 0.5rem var(--color-shadow-400);
 	}
 
 	@media screen and (min-width: 72rem) {

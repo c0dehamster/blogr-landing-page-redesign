@@ -83,15 +83,19 @@
 
 	.button--solid {
 		grid-area: start-for-free;
+		box-shadow: 0.2rem 0.1rem 1rem 0.5rem var(--color-shadow-500);
 	}
 
 	.button--outline {
 		grid-area: learn-more;
+		box-shadow: 0.2rem 0.1rem 1rem 0.5rem var(--color-shadow-500);
 	}
 
 	.hero__image {
 		width: 100%;
 		max-width: 35rem;
+
+		box-shadow: 1rem 1rem 2rem 0.5rem var(--color-shadow-500);
 	}
 
 	@media screen and (min-width: 40rem) {
@@ -118,6 +122,7 @@
 			grid-column: 1 / 6;
 
 			border: 2px solid var(--color-neutral-400);
+			box-shadow: 1rem 1rem 2rem 0.5rem var(--color-shadow-500);
 		}
 
 		.hero__contents {
