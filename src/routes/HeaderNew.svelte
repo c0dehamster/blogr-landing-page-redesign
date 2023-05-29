@@ -23,6 +23,9 @@
 
 	<div class={menuClass}>
 		<nav class="nav">
+			<!-- Dummy div to avoid clipping of the dropdowns -->
+			<div class="nav__clipped-border" />
+
 			<div class="nav__section">
 				<button class="nav__button">
 					Product
@@ -32,7 +35,7 @@
 					</span>
 				</button>
 
-				<ul class="nav__dropdown">
+				<ul class="nav__dropdown nav__dropdown--expanded">
 					<li class="nav__list-item">
 						<a href="#0" class="link">Overview</a>
 					</li>
@@ -64,7 +67,7 @@
 					</span>
 				</button>
 
-				<ul class="nav__dropdown nav__dropdown--expanded">
+				<ul class="nav__dropdown">
 					<li class="nav__list-item">
 						<a href="#0" class="link">About</a>
 					</li>
@@ -154,6 +157,7 @@
 		justify-content: space-between;
 
 		background-color: var(--color-neutral-900);
+		opacity: 98%;
 		border: 2px solid var(--color-neutral-400);
 	}
 
@@ -183,16 +187,22 @@
 	}
 
 	.nav__button {
+		position: relative;
 		padding-block-end: 0.5rem;
+		padding-inline-end: 2rem;
 
 		background: transparent;
 		border: none;
 
-		gap: 0.5rem;
-
 		cursor: pointer;
 
 		color: var(--color-neutral-400);
+	}
+
+	.nav__icon {
+		position: absolute;
+		right: 0;
+		margin-block: auto;
 	}
 
 	.nav__dropdown {
@@ -304,22 +314,54 @@
 		.nav {
 			position: relative;
 			height: 2.5rem;
-
 			padding-inline: 2rem;
+			gap: 2rem;
 
 			flex-direction: row;
 
-			/* Temporary */
-			border: 2px solid var(--color-neutral-400);
+			background: transparent;
+		}
+
+		.nav__clipped-border {
+			position: absolute;
+			inset: 0;
+			z-index: -1;
+
+			clip-path: var(--clip-path);
+
+			background-color: var(--color-neutral-400);
+		}
+
+		.nav__clipped-border::before {
+			content: "";
+
+			position: absolute;
+			inset: 0 2px 1.5px 2px;
+			clip-path: var(--clip-path);
+
+			background-color: var(--color-neutral-900);
+		}
+
+		.nav__button {
+			padding-block: 0;
+		}
+
+		.nav__dropdown {
+			display: none;
 		}
 
 		.nav__dropdown--expanded {
 			display: grid;
 			position: absolute;
 			z-index: 10;
-			top: 2rem;
+			top: 4rem;
+
+			width: fit-content;
 
 			border: 1px solid var(--color-neutral-400);
+			background-color: var(--color-neutral-900);
+			opacity: 98%;
+			box-shadow: 0.5rem 0.5rem 1rem 0.5rem var(--color-shadow-500);
 		}
 
 		.account {
