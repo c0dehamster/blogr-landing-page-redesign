@@ -7,9 +7,7 @@
 	import logo from "../lib/images/logo.svg"
 
 	let menuExpanded = false
-	let productExpanded,
-		companyExpanded,
-		connectExpanded = false
+	let dropdownExpanded: Array<string> = []
 
 	$: icon = !menuExpanded ? iconHamburger : iconClose
 	$: menuClass = `menu ${menuExpanded ? "menu--expanded" : ""}`
@@ -30,15 +28,28 @@
 			<div class="nav__clipped-border" />
 
 			<div class="nav__section">
-				<button class="nav__button">
+				<input
+					type="checkbox"
+					class="hidden"
+					id="product"
+					name="product"
+					value="product"
+					bind:group={dropdownExpanded} />
+
+				<label for="product" class="nav__label">
 					Product
 
 					<span class="nav__icon">
 						<Fa icon={faChevronDown} />
 					</span>
-				</button>
+				</label>
 
-				<ul class="nav__dropdown nav__dropdown--expanded">
+				<ul
+					class={`nav__dropdown ${
+						dropdownExpanded.includes("product")
+							? "nav__dropdown--expanded"
+							: ""
+					}`}>
 					<li class="nav__list-item">
 						<a href="#0" class="link">Overview</a>
 					</li>
@@ -62,15 +73,28 @@
 			</div>
 
 			<div class="nav__section">
-				<button class="nav__button">
+				<input
+					type="checkbox"
+					class="hidden"
+					id="company"
+					name="company"
+					value="company"
+					bind:group={dropdownExpanded} />
+
+				<label for="company" class="nav__label">
 					Company
 
 					<span class="nav__icon">
 						<Fa icon={faChevronDown} />
 					</span>
-				</button>
+				</label>
 
-				<ul class="nav__dropdown">
+				<ul
+					class={`nav__dropdown ${
+						dropdownExpanded.includes("company")
+							? "nav__dropdown--expanded"
+							: ""
+					}`}>
 					<li class="nav__list-item">
 						<a href="#0" class="link">About</a>
 					</li>
@@ -90,15 +114,28 @@
 			</div>
 
 			<div class="nav__section">
-				<button class="nav__button">
+				<input
+					type="checkbox"
+					class="hidden"
+					id="connect"
+					name="connect"
+					value="connect"
+					bind:group={dropdownExpanded} />
+
+				<label for="connect" class="nav__label">
 					Connect
 
 					<span class="nav__icon">
 						<Fa icon={faChevronDown} />
 					</span>
-				</button>
+				</label>
 
-				<ul class="nav__dropdown">
+				<ul
+					class={`nav__dropdown ${
+						dropdownExpanded.includes("connect")
+							? "nav__dropdown--expanded"
+							: ""
+					}`}>
 					<li class="nav__list-item">
 						<a href="#0" class="link">Contact</a>
 					</li>
@@ -152,10 +189,11 @@
 		padding-block: 2.5rem;
 		padding-inline: 2rem;
 
-		position: fixed;
+		position: absolute;
 		inset-inline: 1.5rem;
 		top: 4.5rem;
 
+		gap: 4rem;
 		flex-direction: column;
 		justify-content: space-between;
 
@@ -189,7 +227,20 @@
 		justify-items: center;
 	}
 
-	.nav__button {
+	.nav__label {
+		position: relative;
+		padding-block-end: 0.5rem;
+		padding-inline-end: 2rem;
+
+		background: transparent;
+		border: none;
+
+		cursor: pointer;
+
+		color: var(--color-neutral-400);
+	}
+
+	.nav__label {
 		position: relative;
 		padding-block-end: 0.5rem;
 		padding-inline-end: 2rem;
@@ -345,7 +396,7 @@
 			background-color: var(--color-neutral-900);
 		}
 
-		.nav__button {
+		.nav__label {
 			padding-block: 0;
 		}
 

@@ -75,6 +75,10 @@ select {
 	width: 1px;
 }
 
+.hidden {
+	display: none;
+}
+
 /* General styling */
 
 :root {
