@@ -6,14 +6,17 @@
 	import iconClose from "../lib/images/icon-close.svg"
 	import logo from "../lib/images/logo.svg"
 
-	let expanded = true
+	let menuExpanded = false
+	let productExpanded,
+		companyExpanded,
+		connectExpanded = false
 
-	$: icon = !expanded ? iconHamburger : iconClose
-	$: menuClass = `menu ${expanded ? "menu--expanded" : ""}`
+	$: icon = !menuExpanded ? iconHamburger : iconClose
+	$: menuClass = `menu ${menuExpanded ? "menu--expanded" : ""}`
 </script>
 
 <header class="header">
-	<button class="toggle-menu">
+	<button class="toggle-menu" on:click={() => (menuExpanded = !menuExpanded)}>
 		<!-- Helper div to create a border on a clipped element -->
 		<div class="toggle-menu__contents">
 			<span class="sr-only">Menu</span>
