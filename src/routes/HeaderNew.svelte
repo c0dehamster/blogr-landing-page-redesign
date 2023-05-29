@@ -9,7 +9,7 @@
 	let expanded = true
 
 	$: icon = !expanded ? iconHamburger : iconClose
-	$: menuClass = `manu ${expanded ? "menu--expanded" : ""}`
+	$: menuClass = `menu ${expanded ? "menu--expanded" : ""}`
 </script>
 
 <header class="header">
@@ -65,7 +65,7 @@
 						</span>
 					</button>
 
-					<ul class="nav__dropdown">
+					<ul class="nav__dropdown nav__dropdown--expanded">
 						<li class="nav__list-item">
 							<a href="#0" class="link">About</a>
 						</li>
@@ -133,23 +133,34 @@
 		z-index: 1;
 		width: 100%;
 
-		padding-inline: var(--padding-main-responsive);
+		padding-inline-end: var(--padding-main-responsive);
 
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 	}
 
-	.toggle-menu {
+	.menu {
 		display: none;
+
+		flex: 1;
+		max-width: 25rem;
+		padding-block: 2.5rem;
+		padding-inline: 2rem;
+
+		position: fixed;
+		inset-inline: 1.5rem;
+		top: 4.5rem;
+
+		flex-direction: column;
+		justify-content: space-between;
+
+		background-color: var(--color-neutral-900);
+		border: 2px solid var(--color-neutral-400);
 	}
 
-	.menu {
-		flex: 1;
-
+	.menu--expanded {
 		display: flex;
-		justify-content: space-between;
-		align-items: start;
 	}
 
 	/* Navigation */
@@ -159,30 +170,28 @@
 		padding-block-end: 1.5px;
 
 		--clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
-		clip-path: var(--clip-path);
-
-		background-color: var(--color-neutral-400);
 	}
 
 	.nav__contents {
-		height: 2.5rem;
-
 		padding-inline: 2rem;
 
-		clip-path: var(--clip-path);
-
 		display: flex;
+		flex-direction: column;
 		align-items: center;
-		gap: 2rem;
+		gap: 3rem;
 
 		background-color: var(--color-neutral-900);
 	}
 
-	.nav__dropdown {
-		display: none;
+	.nav__section {
+		width: 100%;
+		display: grid;
+		justify-items: center;
 	}
 
 	.nav__button {
+		padding-block-end: 0.5rem;
+
 		background: transparent;
 		border: none;
 
@@ -193,10 +202,33 @@
 		color: var(--color-neutral-400);
 	}
 
+	.nav__dropdown {
+		height: 0;
+		width: 100%;
+		overflow: hidden;
+
+		display: grid;
+		justify-items: center;
+		gap: 2rem;
+
+		border-top: 2px solid var(--color-neutral-400);
+	}
+
+	.nav__dropdown--expanded {
+		padding: 1.5rem;
+		height: auto;
+		border-bottom: 2px solid var(--color-neutral-400);
+	}
+
+	.link {
+		color: var(--color-neutral-400);
+	}
+
 	/* Account */
 
 	.account {
 		display: flex;
+		flex-direction: column;
 		align-items: center;
 		justify-content: space-between;
 		gap: 2rem;
@@ -206,100 +238,130 @@
 		padding-inline: 2px;
 		padding-block-end: 1.5px;
 
-		clip-path: polygon(0 0, 100% 0, 87.5% 100%, 12.5% 100%);
+		--clip-path: polygon(0 0, 100% 0, 87.5% 100%, 12.5% 100%);
 
-		background-color: var(--color-neutral-400);
+		border: 2px solid var(--color-neutral-400);
 	}
 
 	.button--clip-path {
 		padding-inline: 2.5rem;
 
 		background-color: var(--color-neutral-800);
-
-		clip-path: polygon(0 0, 100% 0, 87.5% 100%, 12.5% 100%);
 	}
 
 	/* Logo */
 
 	.logo {
-		width: 76px;
-		height: 30px;
+		width: 50px;
+		height: 20px;
 
 		margin-inline-start: 2rem;
 	}
 
-	@media screen and (max-width: 60rem) {
+	.toggle-menu {
+		display: block;
+
+		padding-block-end: 2px;
+		padding-inline-end: 2px;
+		--clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+		clip-path: var(--clip-path);
+
+		border: none;
+
+		background-color: var(--color-neutral-400);
+	}
+
+	.toggle-menu__contents {
+		height: 2rem;
+		width: 4.5rem;
+
+		display: grid;
+		align-items: center;
+
+		padding-inline-start: 0.75rem;
+		clip-path: var(--clip-path);
+
+		background-color: var(--color-neutral-900);
+	}
+
+	@media screen and (min-width: 60rem) {
 		.header {
-			padding-inline-start: 0px;
+			padding-inline-start: var(--padding-main-responsive);
 		}
 
 		.toggle-menu {
-			display: block;
+			display: none;
+		}
 
-			padding-block-end: 2px;
-			padding-inline-end: 2px;
-			--clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
-			clip-path: var(--clip-path);
+		.menu {
+			max-width: 100%;
+			padding: 0;
+
+			position: relative;
+			inset: auto;
+
+			flex: 1;
+			flex-direction: row;
+			align-items: start;
 
 			border: none;
+			background: transparent;
+		}
+
+		.nav {
+			position: relative;
+			padding-inline: 2px;
+			padding-block-end: 1.5px;
+
+			clip-path: var(--clip-path);
 
 			background-color: var(--color-neutral-400);
 		}
 
-		.toggle-menu__contents {
-			height: 2rem;
-			width: 4.5rem;
+		.nav__contents {
+			height: 2.5rem;
 
-			display: grid;
-			align-items: center;
+			padding-inline: 2rem;
 
-			padding-inline-start: 0.75rem;
+			flex-direction: row;
+
 			clip-path: var(--clip-path);
 
 			background-color: var(--color-neutral-900);
 		}
 
-		.logo {
-			width: 50px;
-			height: 20px;
-		}
-
-		.menu {
-			display: none;
-		}
-
-		.menu--expanded {
+		.nav__dropdown--expanded {
 			display: grid;
-			position: fixed;
-			inset-inline: 1.5rem;
-			top: 4.5rem;
+			position: absolute;
+			z-index: 10;
+			top: 2rem;
 
-			max-width: 25rem;
-
-			background-color: var(--color-neutral-900);
-			border: 2px solid var(--color-neutral-400);
-		}
-
-		.nav {
-			clip-path: unset;
-		}
-
-		.nav__contents {
-			height: auto;
-			flex-direction: column;
-			clip-path: unset;
+			border: 1px solid var(--color-neutral-400);
 		}
 
 		.account {
-			flex-direction: column;
+			flex-direction: row;
 		}
 
 		.button-border {
-			clip-path: unset;
+			padding-inline: 2px;
+			padding-block-end: 1.5px;
+
+			clip-path: var(--clip-path);
+
+			background-color: var(--color-neutral-400);
+			border: none;
 		}
 
 		.button--clip-path {
-			clip-path: unset;
+			clip-path: var(--clip-path);
+		}
+
+		.logo {
+			width: 76px;
+			height: 30px;
+
+			margin-inline-start: 2rem;
 		}
 	}
 </style>
