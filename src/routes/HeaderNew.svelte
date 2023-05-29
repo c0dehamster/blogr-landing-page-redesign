@@ -200,6 +200,7 @@
 		background-color: var(--color-neutral-900);
 		opacity: 98%;
 		border: 2px solid var(--color-neutral-400);
+		box-shadow: 0.5rem 1rem 1.5rem 1rem var(--color-shadow-500);
 	}
 
 	.menu--expanded {
@@ -225,19 +226,6 @@
 		width: 100%;
 		display: grid;
 		justify-items: center;
-	}
-
-	.nav__label {
-		position: relative;
-		padding-block-end: 0.5rem;
-		padding-inline-end: 2rem;
-
-		background: transparent;
-		border: none;
-
-		cursor: pointer;
-
-		color: var(--color-neutral-400);
 	}
 
 	.nav__label {
@@ -351,6 +339,7 @@
 		}
 
 		.menu {
+			display: flex;
 			max-width: 100%;
 			padding: 0;
 
@@ -363,6 +352,8 @@
 
 			border: none;
 			background: transparent;
+
+			box-shadow: none;
 		}
 
 		.nav {
