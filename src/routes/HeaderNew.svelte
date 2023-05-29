@@ -23,90 +23,88 @@
 
 	<div class={menuClass}>
 		<nav class="nav">
-			<div class="nav__contents">
-				<div class="nav__section">
-					<button class="nav__button">
-						Product
+			<div class="nav__section">
+				<button class="nav__button">
+					Product
 
-						<span class="nav__icon">
-							<Fa icon={faChevronDown} />
-						</span>
-					</button>
+					<span class="nav__icon">
+						<Fa icon={faChevronDown} />
+					</span>
+				</button>
 
-					<ul class="nav__dropdown">
-						<li class="nav__list-item">
-							<a href="#0" class="link">Overview</a>
-						</li>
+				<ul class="nav__dropdown">
+					<li class="nav__list-item">
+						<a href="#0" class="link">Overview</a>
+					</li>
 
-						<li class="nav__list-item">
-							<a href="#0" class="link">Pricing</a>
-						</li>
+					<li class="nav__list-item">
+						<a href="#0" class="link">Pricing</a>
+					</li>
 
-						<li class="nav__list-item">
-							<a href="#0" class="link">Marketplace</a>
-						</li>
+					<li class="nav__list-item">
+						<a href="#0" class="link">Marketplace</a>
+					</li>
 
-						<li class="nav__list-item">
-							<a href="#0" class="link">Features</a>
-						</li>
+					<li class="nav__list-item">
+						<a href="#0" class="link">Features</a>
+					</li>
 
-						<li class="nav__list-item">
-							<a href="#0" class="link">Integrations</a>
-						</li>
-					</ul>
-				</div>
+					<li class="nav__list-item">
+						<a href="#0" class="link">Integrations</a>
+					</li>
+				</ul>
+			</div>
 
-				<div class="nav__section">
-					<button class="nav__button">
-						Company
+			<div class="nav__section">
+				<button class="nav__button">
+					Company
 
-						<span class="nav__icon">
-							<Fa icon={faChevronDown} />
-						</span>
-					</button>
+					<span class="nav__icon">
+						<Fa icon={faChevronDown} />
+					</span>
+				</button>
 
-					<ul class="nav__dropdown nav__dropdown--expanded">
-						<li class="nav__list-item">
-							<a href="#0" class="link">About</a>
-						</li>
+				<ul class="nav__dropdown nav__dropdown--expanded">
+					<li class="nav__list-item">
+						<a href="#0" class="link">About</a>
+					</li>
 
-						<li class="nav__list-item">
-							<a href="#0" class="link">Team</a>
-						</li>
+					<li class="nav__list-item">
+						<a href="#0" class="link">Team</a>
+					</li>
 
-						<li class="nav__list-item">
-							<a href="#0" class="link">Blog</a>
-						</li>
+					<li class="nav__list-item">
+						<a href="#0" class="link">Blog</a>
+					</li>
 
-						<li class="nav__list-item">
-							<a href="#0" class="link">Careers</a>
-						</li>
-					</ul>
-				</div>
+					<li class="nav__list-item">
+						<a href="#0" class="link">Careers</a>
+					</li>
+				</ul>
+			</div>
 
-				<div class="nav__section">
-					<button class="nav__button">
-						Connect
+			<div class="nav__section">
+				<button class="nav__button">
+					Connect
 
-						<span class="nav__icon">
-							<Fa icon={faChevronDown} />
-						</span>
-					</button>
+					<span class="nav__icon">
+						<Fa icon={faChevronDown} />
+					</span>
+				</button>
 
-					<ul class="nav__dropdown">
-						<li class="nav__list-item">
-							<a href="#0" class="link">Contact</a>
-						</li>
+				<ul class="nav__dropdown">
+					<li class="nav__list-item">
+						<a href="#0" class="link">Contact</a>
+					</li>
 
-						<li class="nav__list-item">
-							<a href="#0" class="link">Newsletter</a>
-						</li>
+					<li class="nav__list-item">
+						<a href="#0" class="link">Newsletter</a>
+					</li>
 
-						<li class="nav__list-item">
-							<a href="#0" class="link">LinkedIn</a>
-						</li>
-					</ul>
-				</div>
+					<li class="nav__list-item">
+						<a href="#0" class="link">LinkedIn</a>
+					</li>
+				</ul>
 			</div>
 		</nav>
 
@@ -166,13 +164,8 @@
 	/* Navigation */
 
 	.nav {
-		padding-inline: 2px;
-		padding-block-end: 1.5px;
-
 		--clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
-	}
 
-	.nav__contents {
 		padding-inline: 2rem;
 
 		display: flex;
@@ -310,24 +303,14 @@
 
 		.nav {
 			position: relative;
-			padding-inline: 2px;
-			padding-block-end: 1.5px;
-
-			clip-path: var(--clip-path);
-
-			background-color: var(--color-neutral-400);
-		}
-
-		.nav__contents {
 			height: 2.5rem;
 
 			padding-inline: 2rem;
 
 			flex-direction: row;
 
-			clip-path: var(--clip-path);
-
-			background-color: var(--color-neutral-900);
+			/* Temporary */
+			border: 2px solid var(--color-neutral-400);
 		}
 
 		.nav__dropdown--expanded {
