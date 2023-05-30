@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { slide } from "svelte/transition"
+
 	import Fa from "svelte-fa"
 	import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
 
@@ -44,32 +46,31 @@
 					</span>
 				</label>
 
-				<ul
-					class={`nav__dropdown ${
-						dropdownExpanded.includes("product")
-							? "nav__dropdown--expanded"
-							: ""
-					}`}>
-					<li class="nav__list-item">
-						<a href="#0" class="link">Overview</a>
-					</li>
+				{#if dropdownExpanded.includes("product")}
+					<ul
+						class="nav__dropdown"
+						transition:slide={{ duration: 200 }}>
+						<li class="nav__list-item">
+							<a href="#0" class="link">Overview</a>
+						</li>
 
-					<li class="nav__list-item">
-						<a href="#0" class="link">Pricing</a>
-					</li>
+						<li class="nav__list-item">
+							<a href="#0" class="link">Pricing</a>
+						</li>
 
-					<li class="nav__list-item">
-						<a href="#0" class="link">Marketplace</a>
-					</li>
+						<li class="nav__list-item">
+							<a href="#0" class="link">Marketplace</a>
+						</li>
 
-					<li class="nav__list-item">
-						<a href="#0" class="link">Features</a>
-					</li>
+						<li class="nav__list-item">
+							<a href="#0" class="link">Features</a>
+						</li>
 
-					<li class="nav__list-item">
-						<a href="#0" class="link">Integrations</a>
-					</li>
-				</ul>
+						<li class="nav__list-item">
+							<a href="#0" class="link">Integrations</a>
+						</li>
+					</ul>
+				{/if}
 			</div>
 
 			<div class="nav__section">
@@ -89,28 +90,27 @@
 					</span>
 				</label>
 
-				<ul
-					class={`nav__dropdown ${
-						dropdownExpanded.includes("company")
-							? "nav__dropdown--expanded"
-							: ""
-					}`}>
-					<li class="nav__list-item">
-						<a href="#0" class="link">About</a>
-					</li>
+				{#if dropdownExpanded.includes("company")}
+					<ul
+						class="nav__dropdown"
+						transition:slide={{ duration: 200 }}>
+						<li class="nav__list-item">
+							<a href="#0" class="link">About</a>
+						</li>
 
-					<li class="nav__list-item">
-						<a href="#0" class="link">Team</a>
-					</li>
+						<li class="nav__list-item">
+							<a href="#0" class="link">Team</a>
+						</li>
 
-					<li class="nav__list-item">
-						<a href="#0" class="link">Blog</a>
-					</li>
+						<li class="nav__list-item">
+							<a href="#0" class="link">Blog</a>
+						</li>
 
-					<li class="nav__list-item">
-						<a href="#0" class="link">Careers</a>
-					</li>
-				</ul>
+						<li class="nav__list-item">
+							<a href="#0" class="link">Careers</a>
+						</li>
+					</ul>
+				{/if}
 			</div>
 
 			<div class="nav__section">
@@ -130,24 +130,23 @@
 					</span>
 				</label>
 
-				<ul
-					class={`nav__dropdown ${
-						dropdownExpanded.includes("connect")
-							? "nav__dropdown--expanded"
-							: ""
-					}`}>
-					<li class="nav__list-item">
-						<a href="#0" class="link">Contact</a>
-					</li>
+				{#if dropdownExpanded.includes("connect")}
+					<ul
+						class="nav__dropdown"
+						transition:slide={{ duration: 200 }}>
+						<li class="nav__list-item">
+							<a href="#0" class="link">Contact</a>
+						</li>
 
-					<li class="nav__list-item">
-						<a href="#0" class="link">Newsletter</a>
-					</li>
+						<li class="nav__list-item">
+							<a href="#0" class="link">Newsletter</a>
+						</li>
 
-					<li class="nav__list-item">
-						<a href="#0" class="link">LinkedIn</a>
-					</li>
-				</ul>
+						<li class="nav__list-item">
+							<a href="#0" class="link">LinkedIn</a>
+						</li>
+					</ul>
+				{/if}
 			</div>
 		</nav>
 
@@ -226,6 +225,8 @@
 		width: 100%;
 		display: grid;
 		justify-items: center;
+
+		border-bottom: 1px solid var(--color-neutral-400);
 	}
 
 	.nav__label {
@@ -248,21 +249,14 @@
 	}
 
 	.nav__dropdown {
-		height: 0;
+		padding: 1.5rem;
 		width: 100%;
-		overflow: hidden;
 
 		display: grid;
 		justify-items: center;
 		gap: 2rem;
 
-		border-top: 2px solid var(--color-neutral-400);
-	}
-
-	.nav__dropdown--expanded {
-		padding: 1.5rem;
-		height: auto;
-		border-bottom: 2px solid var(--color-neutral-400);
+		border-top: 1px solid var(--color-neutral-400);
 	}
 
 	.link {
@@ -387,16 +381,15 @@
 			background-color: var(--color-neutral-900);
 		}
 
+		.nav__section {
+			border: none;
+		}
+
 		.nav__label {
 			padding-block: 0;
 		}
 
 		.nav__dropdown {
-			display: none;
-		}
-
-		.nav__dropdown--expanded {
-			display: grid;
 			position: absolute;
 			z-index: 10;
 			top: 4rem;
