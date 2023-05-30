@@ -14,10 +14,10 @@
 <header class="header">
 	<button class="toggle-menu" on:click={() => (menuExpanded = !menuExpanded)}>
 		<!-- Helper div to create a border on a clipped element -->
-		<div class="toggle-menu__contents">
-			<span class="sr-only">Menu</span>
-			<img src={icon} alt="" class="toggle-menu__icon" />
-		</div>
+		<div class="toggle-menu__clipped-border" />
+
+		<span class="sr-only">Menu</span>
+		<img src={icon} alt="" class="toggle-menu__icon" />
 	</button>
 
 	<div class={menuClass}>
@@ -100,6 +100,48 @@
 		display: flex;
 	}
 
+	/* Utilities to simulate non-square borders */
+
+	.nav__clipped-border,
+	.button__clipped-border,
+	.toggle-menu__clipped-border {
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+
+		clip-path: var(--clip-path);
+
+		background-color: var(--color-neutral-400);
+	}
+
+	.nav__clipped-border,
+	.button__clipped-border {
+		display: none;
+	}
+
+	.nav__clipped-border::before,
+	.button__clipped-border::before,
+	.toggle-menu__clipped-border::before {
+		content: "";
+		position: absolute;
+		clip-path: var(--clip-path);
+	}
+
+	.nav__clipped-border::before {
+		inset: 0 2px 1.5px 2px;
+		background-color: var(--color-neutral-900);
+	}
+
+	.button__clipped-border::before {
+		inset: 0 2px 1.5px 2px;
+		background-color: var(--color-neutral-800);
+	}
+
+	.toggle-menu__clipped-border::before {
+		inset: 0 2px 1.5px 0;
+		background-color: var(--color-neutral-900);
+	}
+
 	/* Navigation */
 
 	.nav {
@@ -111,8 +153,6 @@
 		flex-direction: column;
 		align-items: center;
 		gap: 3rem;
-
-		background-color: var(--color-neutral-900);
 	}
 
 	/* Account */
@@ -137,27 +177,6 @@
 		background: transparent;
 	}
 
-	.button__clipped-border {
-		display: none;
-		position: absolute;
-		inset: 0;
-		z-index: -1;
-
-		clip-path: var(--clip-path);
-
-		background-color: var(--color-neutral-400);
-	}
-
-	.button__clipped-border::before {
-		content: "";
-
-		position: absolute;
-		inset: 0 2px 1.5px 2px;
-		clip-path: var(--clip-path);
-
-		background-color: var(--color-neutral-800);
-	}
-
 	/* Logo */
 
 	.logo {
@@ -167,30 +186,19 @@
 		margin-inline-start: 2rem;
 	}
 
+	/* Menu button */
+
 	.toggle-menu {
-		display: block;
+		position: relative;
 
-		padding-block-end: 2px;
-		padding-inline-end: 2px;
-		--clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
-		clip-path: var(--clip-path);
-
-		border: none;
-
-		background-color: var(--color-neutral-400);
-	}
-
-	.toggle-menu__contents {
 		height: 2rem;
 		width: 4.5rem;
 
-		display: grid;
-		align-items: center;
-
+		--clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
 		padding-inline-start: 0.75rem;
-		clip-path: var(--clip-path);
 
-		background-color: var(--color-neutral-900);
+		border: none;
+		background: transparent;
 	}
 
 	@media screen and (min-width: 60rem) {
@@ -223,8 +231,6 @@
 		.logo {
 			width: 76px;
 			height: 30px;
-
-			margin-inline-start: 2rem;
 		}
 
 		/* Navigation */
@@ -236,28 +242,6 @@
 			gap: 2rem;
 
 			flex-direction: row;
-
-			background: transparent;
-		}
-
-		.nav__clipped-border {
-			position: absolute;
-			inset: 0;
-			z-index: -1;
-
-			clip-path: var(--clip-path);
-
-			background-color: var(--color-neutral-400);
-		}
-
-		.nav__clipped-border::before {
-			content: "";
-
-			position: absolute;
-			inset: 0 2px 1.5px 2px;
-			clip-path: var(--clip-path);
-
-			background-color: var(--color-neutral-900);
 		}
 
 		/* Account */
@@ -270,7 +254,8 @@
 			border: none;
 		}
 
-		.button__clipped-border {
+		.button__clipped-border,
+		.nav__clipped-border {
 			display: block;
 		}
 	}
