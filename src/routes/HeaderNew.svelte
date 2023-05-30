@@ -122,18 +122,16 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: space-between;
-		gap: 2rem;
+		row-gap: 2rem;
 	}
 
 	.button {
-		padding-inline: 2px;
-		padding-block-end: 1.5px;
+		padding-inline: 2.5rem;
 
 		font-size: var(--font-size-400);
 	}
 
 	.button--clip-path {
-		padding-inline: 2.5rem;
 		--clip-path: polygon(0 0, 100% 0, 87.5% 100%, 12.5% 100%);
 
 		background: transparent;

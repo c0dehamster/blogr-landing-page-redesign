@@ -123,12 +123,12 @@ ul {
 	list-style: none;
 }
 
-/* Utilities */
-
-.link,
-.button {
+button,
+a {
 	cursor: pointer;
 }
+
+/* Utilities */
 
 .link {
 	text-decoration: none;
@@ -142,7 +142,7 @@ ul {
 	position: absolute;
 	left: 50%;
 	right: 50%;
-	bottom: 0;
+	bottom: -2px;
 	border-bottom: 1px solid;
 	transition: 150ms ease-in;
 }
@@ -199,13 +199,8 @@ ul {
 	right: 0;
 }
 
-.button--solid:hover::before,
-.button--solid:focus::before {
-	background-color: var(--color-neutral-400);
-}
-
-.button--outline:hover::before,
-.button--outline:focus::before {
+.button:hover::before,
+.button:focus::before {
 	background-color: var(--color-neutral-400);
 }
 
