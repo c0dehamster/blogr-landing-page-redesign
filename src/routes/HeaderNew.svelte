@@ -1,15 +1,13 @@
 <script lang="ts">
 	import { slide } from "svelte/transition"
 
-	import Fa from "svelte-fa"
-	import { faChevronDown } from "@fortawesome/free-solid-svg-icons"
-
 	import iconHamburger from "../lib/images/icon-hamburger.svg"
 	import iconClose from "../lib/images/icon-close.svg"
 	import logo from "../lib/images/logo.svg"
 
+	import NavSection from "./NavSection.svelte"
+
 	let menuExpanded = false
-	let dropdownExpanded: Array<string> = []
 
 	$: icon = !menuExpanded ? iconHamburger : iconClose
 	$: menuClass = `menu ${menuExpanded ? "menu--expanded" : ""}`
@@ -29,125 +27,23 @@
 			<!-- Dummy div to avoid clipping of the dropdowns -->
 			<div class="nav__clipped-border" />
 
-			<div class="nav__section">
-				<input
-					type="checkbox"
-					class="hidden"
-					id="product"
-					name="product"
-					value="product"
-					bind:group={dropdownExpanded} />
+			<NavSection
+				label="product"
+				list={[
+					"Overview",
+					"Pricing",
+					"Marketplace",
+					"Features",
+					"Integrations",
+				]} />
 
-				<label for="product" class="nav__label">
-					Product
+			<NavSection
+				label="company"
+				list={["About", "Team", "Blog", "Careers"]} />
 
-					<span class="nav__icon">
-						<Fa icon={faChevronDown} />
-					</span>
-				</label>
-
-				{#if dropdownExpanded.includes("product")}
-					<ul
-						class="nav__dropdown"
-						transition:slide={{ duration: 200 }}>
-						<li class="nav__list-item">
-							<a href="#0" class="link">Overview</a>
-						</li>
-
-						<li class="nav__list-item">
-							<a href="#0" class="link">Pricing</a>
-						</li>
-
-						<li class="nav__list-item">
-							<a href="#0" class="link">Marketplace</a>
-						</li>
-
-						<li class="nav__list-item">
-							<a href="#0" class="link">Features</a>
-						</li>
-
-						<li class="nav__list-item">
-							<a href="#0" class="link">Integrations</a>
-						</li>
-					</ul>
-				{/if}
-			</div>
-
-			<div class="nav__section">
-				<input
-					type="checkbox"
-					class="hidden"
-					id="company"
-					name="company"
-					value="company"
-					bind:group={dropdownExpanded} />
-
-				<label for="company" class="nav__label">
-					Company
-
-					<span class="nav__icon">
-						<Fa icon={faChevronDown} />
-					</span>
-				</label>
-
-				{#if dropdownExpanded.includes("company")}
-					<ul
-						class="nav__dropdown"
-						transition:slide={{ duration: 200 }}>
-						<li class="nav__list-item">
-							<a href="#0" class="link">About</a>
-						</li>
-
-						<li class="nav__list-item">
-							<a href="#0" class="link">Team</a>
-						</li>
-
-						<li class="nav__list-item">
-							<a href="#0" class="link">Blog</a>
-						</li>
-
-						<li class="nav__list-item">
-							<a href="#0" class="link">Careers</a>
-						</li>
-					</ul>
-				{/if}
-			</div>
-
-			<div class="nav__section">
-				<input
-					type="checkbox"
-					class="hidden"
-					id="connect"
-					name="connect"
-					value="connect"
-					bind:group={dropdownExpanded} />
-
-				<label for="connect" class="nav__label">
-					Connect
-
-					<span class="nav__icon">
-						<Fa icon={faChevronDown} />
-					</span>
-				</label>
-
-				{#if dropdownExpanded.includes("connect")}
-					<ul
-						class="nav__dropdown"
-						transition:slide={{ duration: 200 }}>
-						<li class="nav__list-item">
-							<a href="#0" class="link">Contact</a>
-						</li>
-
-						<li class="nav__list-item">
-							<a href="#0" class="link">Newsletter</a>
-						</li>
-
-						<li class="nav__list-item">
-							<a href="#0" class="link">LinkedIn</a>
-						</li>
-					</ul>
-				{/if}
-			</div>
+			<NavSection
+				label="connect"
+				list={["Contact", "Newsletter", "LinkedIn"]} />
 		</nav>
 
 		<div class="account">
@@ -219,48 +115,6 @@
 		gap: 3rem;
 
 		background-color: var(--color-neutral-900);
-	}
-
-	.nav__section {
-		width: 100%;
-		display: grid;
-		justify-items: center;
-
-		border-bottom: 1px solid var(--color-neutral-400);
-	}
-
-	.nav__label {
-		position: relative;
-		padding-block-end: 0.5rem;
-		padding-inline-end: 2rem;
-
-		background: transparent;
-		border: none;
-
-		cursor: pointer;
-
-		color: var(--color-neutral-400);
-	}
-
-	.nav__icon {
-		position: absolute;
-		right: 0;
-		margin-block: auto;
-	}
-
-	.nav__dropdown {
-		padding: 1.5rem;
-		width: 100%;
-
-		display: grid;
-		justify-items: center;
-		gap: 2rem;
-
-		border-top: 1px solid var(--color-neutral-400);
-	}
-
-	.link {
-		color: var(--color-neutral-400);
 	}
 
 	/* Account */
@@ -408,27 +262,6 @@
 			clip-path: var(--clip-path);
 
 			background-color: var(--color-neutral-900);
-		}
-
-		.nav__section {
-			border: none;
-		}
-
-		.nav__label {
-			padding-block: 0;
-		}
-
-		.nav__dropdown {
-			position: absolute;
-			z-index: 10;
-			top: 4rem;
-
-			width: fit-content;
-
-			border: 1px solid var(--color-neutral-400);
-			background-color: var(--color-neutral-900);
-			opacity: 98%;
-			box-shadow: 0.5rem 0.5rem 1rem 0.5rem var(--color-shadow-500);
 		}
 
 		/* Account */
