@@ -164,6 +164,7 @@
 		.services__list-item--2 {
 			padding-block-end: var(--card-offset);
 			padding-inline-start: var(--border-offset);
+			padding-inline-end: var(--card-offset);
 		}
 
 		.services__list-item--3 {
@@ -176,6 +177,7 @@
 
 		.services__list-item--4 {
 			padding-block-start: var(--card-offset);
+			padding-inline-start: var(--card-offset);
 			padding-inline-end: var(--border-offset);
 
 			grid-row: 2 / 3;

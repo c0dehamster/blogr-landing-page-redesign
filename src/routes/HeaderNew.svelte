@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { slide } from "svelte/transition"
-
 	import iconHamburger from "../lib/images/icon-hamburger.svg"
 	import iconClose from "../lib/images/icon-close.svg"
 	import logo from "../lib/images/logo.svg"
