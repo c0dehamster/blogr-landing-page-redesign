@@ -153,11 +153,11 @@
 		<div class="account">
 			<button class="button button--naked">Login</button>
 
-			<div class="button-border">
-				<button class="button button--naked button--clip-path">
-					Sign Up
-				</button>
-			</div>
+			<button class="button button--outline button--clip-path">
+				<div class="button__clipped-border" />
+
+				Sign Up
+			</button>
 		</div>
 	</div>
 
@@ -273,17 +273,37 @@
 		gap: 2rem;
 	}
 
-	.button-border {
+	.button {
 		padding-inline: 2px;
 		padding-block-end: 1.5px;
 
-		--clip-path: polygon(0 0, 100% 0, 87.5% 100%, 12.5% 100%);
-
-		border: 2px solid var(--color-neutral-400);
+		font-size: var(--font-size-400);
 	}
 
 	.button--clip-path {
 		padding-inline: 2.5rem;
+		--clip-path: polygon(0 0, 100% 0, 87.5% 100%, 12.5% 100%);
+
+		background: transparent;
+	}
+
+	.button__clipped-border {
+		display: none;
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+
+		clip-path: var(--clip-path);
+
+		background-color: var(--color-neutral-400);
+	}
+
+	.button__clipped-border::before {
+		content: "";
+
+		position: absolute;
+		inset: 0 2px 1.5px 2px;
+		clip-path: var(--clip-path);
 
 		background-color: var(--color-neutral-800);
 	}
@@ -350,6 +370,15 @@
 			box-shadow: none;
 		}
 
+		.logo {
+			width: 76px;
+			height: 30px;
+
+			margin-inline-start: 2rem;
+		}
+
+		/* Navigation */
+
 		.nav {
 			position: relative;
 			height: 2.5rem;
@@ -402,29 +431,18 @@
 			box-shadow: 0.5rem 0.5rem 1rem 0.5rem var(--color-shadow-500);
 		}
 
+		/* Account */
+
 		.account {
 			flex-direction: row;
 		}
 
-		.button-border {
-			padding-inline: 2px;
-			padding-block-end: 1.5px;
-
-			clip-path: var(--clip-path);
-
-			background-color: var(--color-neutral-400);
+		.button--clip-path {
 			border: none;
 		}
 
-		.button--clip-path {
-			clip-path: var(--clip-path);
-		}
-
-		.logo {
-			width: 76px;
-			height: 30px;
-
-			margin-inline-start: 2rem;
+		.button__clipped-border {
+			display: block;
 		}
 	}
 </style>
