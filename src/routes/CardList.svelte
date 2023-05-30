@@ -140,7 +140,6 @@
 		}
 
 		.services__list {
-			max-width: 100%;
 			padding-block: 9rem;
 
 			grid-template-columns: 1fr 1fr;
@@ -157,8 +156,6 @@
 		.services__list-item--1 {
 			padding-inline-end: var(--card-offset);
 			padding-block-end: var(--border-offset);
-
-			justify-items: end;
 		}
 
 		.services__list-item--2 {
@@ -191,7 +188,6 @@
 			height: 100%;
 			width: 100%;
 
-			/* Temporary */
 			--border: 2px solid var(--color-neutral-400);
 		}
 

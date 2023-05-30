@@ -50,8 +50,6 @@
 		background: transparent;
 		border: none;
 
-		cursor: pointer;
-
 		color: var(--color-neutral-400);
 
 		text-transform: capitalize;
