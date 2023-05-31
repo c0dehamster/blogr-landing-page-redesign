@@ -48,7 +48,7 @@
 			<button class="button button--naked">Login</button>
 
 			<button class="button button--outline button--clip-path">
-				<div class="button__clipped-border" />
+				<span class="button__clipped-border" />
 
 				Sign Up
 			</button>
